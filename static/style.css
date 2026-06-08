@@ -1,0 +1,61 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #f4f4f4;
+}
+
+/* NAVBAR */
+.navbar {
+    background-color: #1f1f1f;
+    color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* MAIN CONTAINER */
+.container {
+    padding: 20px;
+}
+
+/* USER LIST */
+.user-list {
+    list-style: none;
+    padding: 0;
+}
+
+.user-entry {
+    margin: 10px 0;
+}
+
+/* BUTTON STYLE */
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* INPUTS */
+input {
+    padding: 6px;
+    margin: 5px;
+}

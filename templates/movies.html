@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Movies</h1>
+
+<ul>
+    {% for movie in movies %}
+    <li>
+        <strong>{{ movie.name }}</strong>
+        ({{ movie.year }})
+
+        <form action="{{ url_for('delete_movie', user_id=movie.user_id, movie_id=movie.id) }}" method="POST" style="display:inline;">
+            <button>Delete</button>
+        </form>
+
+        <form action="{{ url_for('update_movie', user_id=movie.user_id, movie_id=movie.id) }}" method="POST" style="display:inline;">
+            <input type="text" name="title" placeholder="New title">
+            <button>Update</button>
+        </form>
+    </li>
+    {% endfor %}
+</ul>
+
+<h2>Add Movie</h2>
+
+<form action="{{ url_for('add_movie', user_id=user_id) }}" method="POST">
+    <input type="text" name="name" placeholder="Movie name" required>
+    <input type="text" name="director" placeholder="Director" required>
+    <input type="number" name="year" placeholder="Year" required>
+    <input type="text" name="poster_url" placeholder="Poster URL" required>
+    <button>Add</button>
+</form>
+
+{% endblock %}
