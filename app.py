@@ -5,7 +5,7 @@ from models import db, Movie
 app = Flask(__name__)
 
 # -------------------
-# DATABASE CONFIG (ORM)
+# DATABASE CONFIG
 # -------------------
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///movies.db"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
@@ -16,15 +16,24 @@ data_manager = DataManager()
 
 
 # -------------------
-# HOME ROUTE (TEST ONLY)
+# HOME ROUTE (TEST)
 # -------------------
-@app.route("/")
+@app.route('/')
 def home():
     return "Welcome to MoviWeb App!"
 
 
 # -------------------
-# CREATE DATABASE FIRST TIME
+# USERS ROUTE (DATA MANAGER INTEGRATION)
+# -------------------
+@app.route('/users')
+def list_users():
+    users = data_manager.get_users()
+    return str(users)
+
+
+# -------------------
+# CREATE DATABASE
 # -------------------
 with app.app_context():
     db.create_all()
